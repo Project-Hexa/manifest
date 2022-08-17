@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- Project Hexa remote -->
+  <remote  name="hexa"
+           fetch="https://github.com/Project-Hexa"
+           revision="13"
+           sync-j="16" />
+
+  <remote  name="hexa-lab"
+           fetch="https://github.com/Project-Hexa-Lab" 
+           revision="13" />
+
+  <!-- Device remote -->
+  <remote  name="hexa-devices"
+           fetch="https://github.com/Project-Hexa-Devices"
+           revision="13" />
+
+  <!-- Github remote -->
+  <remote  name="github"
+           fetch="https://github.com/" />
+
+  <!-- Gitlab remote -->
+  <remote  name="gitlab"
+           fetch="https://gitlab.com/" />
+
+  <project path="manifest" name="manifest" remote="hexa" />
+  <project path="art" name="art" remote="hexa" />
+  <project path="bionic" name="bionic" remote="hexa" />
+  <project path="libcore" name="libcore" remote="hexa" />
+  <project path="build/blueprint" name="build_blueprint" remote="hexa" />
+
+  <!-- Bootable -->
+  <project path="bootable/recovery" name="bootable_recovery" remote="hexa" />
+
+  <!-- Build -->
+  <project path="build/make" name="build" remote="hexa" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh"/>
+    <linkfile src="target" dest="build/target"/>
+    <linkfile src="tools" dest="build/tools"/>
+  </project>
+
+  <project path="build/soong" name="build_soong" remote="hexa" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- External -->
+  <project path="external/ant-wireless/ant_client" name="external_ant-wireless_ant_client" remote="hexa" />
+  <project path="external/ant-wireless/ant_native" name="external_ant-wireless_ant_native" remote="hexa" />
+  <project path="external/ant-wireless/ant_service" name="external_ant-wireless_ant_service" remote="hexa" />
+  <project path="external/ant-wireless/hidl" name="external_ant-wireless_hidl" remote="hexa" />
+  <project path="external/json-c" name="external_json-c" remote="hexa" />
+  <project path="external/selinux" name="external_selinux" remote="hexa" />
+  <project path="external/tinycompress" name="external_tinycompress" remote="hexa" />
+  <project path="external/wpa_supplicant_8" name="external_wpa_supplicant_8" remote="hexa" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/av" name="frameworks_av" remote="hexa" />
+  <project path="frameworks/base" name="frameworks_base" remote="hexa" />
+  <project path="frameworks/native" name="frameworks_native" remote="hexa" />
+  <project path="frameworks/opt/telephony" name="frameworks_opt_telephony" remote="hexa" />
+  <project path="frameworks/opt/net/ims" name="frameworks_opt_net_ims" remote="hexa" />
+  <project path="frameworks/opt/net/wifi" name="frameworks_opt_net_wifi" remote="hexa" />
+
+    <!-- hardware repos -->
+  <project path="hardware/qcom-caf/bootctrl" name="hardware_qcom_bootctrl" remote="hexa" revision="13-caf" />
+  <project path="hardware/qcom-caf/common" name="hardware_qcom-caf_common" remote="hexa" >
+    <!-- add guard for AOSP hardware/qcom dir -->
+    <linkfile src="os_pickup_aosp.mk" dest="hardware/qcom/Android.mk" />
+    <!-- add guards for CAF repositories -->
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8150/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8150/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8250/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8250/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8350/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8350/Android.mk" />
+    <!-- NXP -->
+    <linkfile src="os_pickup.bp" dest="vendor/nxp/opensource/pn5xx/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="vendor/nxp/opensource/pn5xx/Android.mk" />
+    <linkfile src="os_pickup.bp" dest="vendor/nxp/opensource/sn100x/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="vendor/nxp/opensource/sn100x/Android.mk" />
+  </project>
+  <project path="hardware/qcom-caf/sm8150/audio" name="hardware_qcom_audio" remote="hexa" revision="13-caf-sm8150" />
+  <project path="hardware/qcom-caf/sm8150/display" name="hardware_qcom_display" remote="hexa" revision="13-caf-sm8150" />
+  <project path="hardware/qcom-caf/sm8150/media" name="hardware_qcom_media" remote="hexa" revision="13-caf-sm8150" />
+  <project path="hardware/qcom-caf/sm8250/audio" name="hardware_qcom_audio" remote="hexa" revision="13-caf-sm8250" />
+  <project path="hardware/qcom-caf/sm8250/display" name="hardware_qcom_display" remote="hexa" revision="13-caf-sm8250" />
+  <project path="hardware/qcom-caf/sm8250/media" name="hardware_qcom_media" remote="hexa" revision="13-caf-sm8250" />
+  <project path="hardware/qcom-caf/sm8350/audio" name="hardware_qcom_audio" remote="hexa" revision="13-caf-sm8350" />
+  <project path="hardware/qcom-caf/sm8350/display" name="hardware_qcom_display" remote="hexa" revision="13-caf-sm8350" />
+  <project path="hardware/qcom-caf/sm8350/media" name="hardware_qcom_media" remote="hexa" revision="13-caf-sm8350" />
+  <project path="hardware/qcom-caf/wlan" name="hardware_qcom_wlan" remote="hexa" revision="13-caf"/>
+  <project path="hardware/interfaces" name="hardware_interfaces" remote="hexa" />
+  <project path="hardware/libhardware" name="hardware_libhardware" remote="hexa" />
+  <project path="hardware/libhardware_legacy" name="hardware_libhardware_legacy" remote="hexa" />
+  <project path="hardware/ril" name="hardware_ril" remote="hexa" /> 
+
+  <!-- Packages -->
+  <project path="packages/apps/DeskClock" name="packages_apps_DeskClock" remote="hexa" />
+  <project path="packages/apps/Dialer" name="packages_apps_Dialer" remote="hexa" />
+  <project path="packages/apps/Launcher3" name="packages_apps_Launcher3" remote="hexa" />
+  <project path="packages/apps/Messaging" name="packages_apps_Messaging" remote="hexa" />
+  <project path="packages/apps/Nfc" name="packages_apps_Nfc" remote="hexa" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" remote="hexa" />
+  <project path="packages/apps/SettingsIntelligence" name="packages_apps_SettingsIntelligence" remote="hexa" />
+  <project path="packages/apps/SimpleDeviceConfig" name="packages_apps_SimpleDeviceConfig" remote="hexa" />
+  <project path="packages/apps/ThemePicker" name="packages_apps_ThemePicker" remote="hexa" />
+  <project path="packages/apps/WallpaperPicker2" name="packages_apps_WallpaperPicker2" remote="hexa" />
+  <project path="packages/inputmethods/LatinIME" name="packages_inputmethods_LatinIME" remote="hexa" />
+  <project path="packages/modules/Bluetooth" name="packages_modules_Bluetooth" remote="hexa" />
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" remote="hexa" />
+  <project path="packages/modules/Permission" name="packages_modules_Permission" remote="hexa" />
+  <project path="packages/modules/Wifi" name="packages_modules_Wifi" remote="hexa" />
+  <project path="packages/modules/adb" name="packages_modules_adb" remote="hexa" />
+  <project path="packages/providers/DownloadProvider" name="packages_providers_DownloadProvider" remote="hexa" />
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="hexa" />
+  <project path="packages/services/Telephony" name="packages_services_Telephony" remote="hexa" />
+
+  <!-- Prebuilts -->
+  <project path="prebuilts/tools-extras" name="prebuilts_tools-extras" remote="hexa" />
+
+  <!-- Device -->
+  <project path="device/hexa/sepolicy" name="device_hexa_sepolicy" remote="hexa" />
+  <project path="device/qcom/sepolicy" name="device_qcom_sepolicy" remote="hexa" />
+  <project path="device/qcom/sepolicy-legacy-um" name="device_qcom_sepolicy-legacy-um" remote="hexa" />
+  <project path="device/qcom/sepolicy_vndr" name="device_qcom_sepolicy_vndr" remote="hexa" />
+  <project path="device/mediatek/sepolicy_vndr" name="device_mediatek_sepolicy_vndr" remote="hexa" />
+
+  <!-- System -->
+  <project path="system/core" name="system_core" remote="hexa" />
+  <project path="system/media" name="system_media" remote="hexa" />
+  <project path="system/qcom" name="system_qcom" remote="hexa" />
+  <project path="system/sepolicy" name="system_sepolicy" remote="hexa" />
+  <project path="system/update_engine" name="system_update_engine" remote="hexa" />
+  <project path="system/vold" name="system_vold" remote="hexa" />
+
+  <!-- Tools -->
+  <project path="tools/extract-utils" name="tools_extract-utils" remote="hexa" />
+
+
+  <!-- Vendor -->
+  <project path="vendor/codeaurora/telephony" name="vendor_codeaurora_telephony" remote="hexa" />
+  <project path="vendor/hexa" name="vendor_hexa" remote="hexa" />
+  <project path="vendor/nxp/nfc" name="vendor_nxp_nfc" remote="hexa" />
+  <project path="vendor/nxp/secure_element" name="vendor_nxp_secure_element" remote="hexa" />
+  <project path="vendor/nxp/secure_element_extns" name="vendor_nxp_secure_element_extns" remote="hexa" />
+  <project path="vendor/nxp/opensource/interfaces/nfc" name="vendor_nxp_interfaces_opensource_nfc" remote="hexa" />
+  <project path="vendor/nxp/opensource/commonsys/external/libnfc-nci" name="vendor_nxp_opensource_external_libnfc-nci" remote="hexa" />
+  <project path="vendor/nxp/opensource/commonsys/frameworks" name="vendor_nxp_opensource_frameworks" remote="hexa" />
+  <project path="vendor/nxp/opensource/commonsys/packages/apps/Nfc" name="vendor_nxp_opensource_packages_apps_Nfc" remote="hexa" />
+  <project path="vendor/nxp/opensource/pn5xx/halimpl" name="vendor_nxp_opensource_halimpl" remote="hexa" revision="13-pn5xx" />
+  <project path="vendor/nxp/opensource/pn5xx/hidlimpl" name="vendor_nxp_opensource_hidlimpl" remote="hexa" revision="13-pn5xx" />
+  <project path="vendor/nxp/opensource/sn100x/halimpl" name="vendor_nxp_opensource_halimpl" remote="hexa" revision="13-sn100x" />
+  <project path="vendor/nxp/opensource/sn100x/hidlimpl" name="vendor_nxp_opensource_hidlimpl" remote="hexa" revision="13-sn100x" />
+  <project path="vendor/qcom/opensource/audio" name="vendor_qcom_opensource_audio" remote="hexa" />
+  <project path="vendor/qcom/opensource/audio-hal/st-hal" name="vendor_qcom_opensource_audio-hal_st-hal" remote="hexa" />
+  <project path="vendor/qcom/opensource/commonsys-intf/display" name="vendor_qcom_opensource_display-commonsys-intf" remote="hexa" />
+  <project path="vendor/qcom/opensource/commonsys/display" name="vendor_qcom_opensource_display-commonsys" remote="hexa" />
+  <project path="vendor/qcom/opensource/data-ipa-cfg-mgr" name="vendor_qcom_opensource_data-ipa-cfg-mgr" remote="hexa" />
+  <project path="vendor/qcom/opensource/dataservices" name="vendor_qcom_opensource_dataservices" remote="hexa" />
+  <project path="vendor/qcom/opensource/interfaces" name="vendor_qcom_opensource_interfaces" remote="hexa" />
+  <project path="vendor/qcom/opensource/power" name="vendor_qcom_opensource_power" remote="hexa" />
+  <project path="vendor/qcom/opensource/thermal-engine" name="vendor_qcom_opensource_thermal-engine" remote="hexa" />
+  <project path="vendor/qcom/opensource/usb" name="vendor_qcom_opensource_usb" remote="hexa" />
+  <project path="vendor/qcom/opensource/vibrator" name="vendor_qcom_opensource_vibrator" remote="hexa" />
+  <project path="vendor/qcom/opensource/wfd-commonsys" name="vendor_qcom_opensource_wfd-commonsys" remote="hexa" />
+  <project path="vendor/support" name="vendor_support" remote="hexa" />
+
+</manifest>
