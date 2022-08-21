@@ -1168,6 +1168,7 @@
   <!-- END open-source projects -->
 
   <include name="snippets/remove.xml" />
+  <include name="snippets/arrow.xml" />
   <include name="snippets/hexa.xml" />
   
 </manifest>
