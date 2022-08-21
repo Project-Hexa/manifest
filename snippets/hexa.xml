@@ -170,5 +170,6 @@
   <project path="vendor/qcom/opensource/vibrator" name="vendor_qcom_opensource_vibrator" remote="hexa" />
   <project path="vendor/qcom/opensource/wfd-commonsys" name="vendor_qcom_opensource_wfd-commonsys" remote="hexa" />
   <project path="vendor/support" name="vendor_support" remote="hexa" />
+  <project path="vendor/gms" name="Project-Hexa/vendor_google_gms" remote="gitlab" revision="13" />
 
 </manifest>
