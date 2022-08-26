@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- Project Hexa remote -->
+  <remote  name="hexa"
+           fetch="https://github.com/Project-Hexa"
+           revision="refs/heads/13"
+           sync-j="16" />
+
+  <remote  name="hexa-lab"
+           fetch="https://github.com/Project-Hexa-Lab" 
+           revision="refs/heads/13" />
+
+  <!-- Device remote -->
+  <remote  name="hexa-devices"
+           fetch="https://github.com/Project-Hexa-Devices"
+           revision="refs/heads/13" />
+
+  <!-- Github remote -->
+  <remote  name="github"
+           fetch="https://github.com/" />
+
+  <!-- Gitlab remote -->
+  <remote  name="gitlab"
+           fetch="https://gitlab.com/" />
+
+  <project path="manifest" name="manifest" remote="hexa" />
+  <project path="art" name="art" remote="hexa" />
+  <project path="bionic" name="bionic" remote="hexa" />
+
+  <!-- Bootable -->
+  <project path="bootable/recovery" name="bootable_recovery" remote="hexa" />
+
+  <!-- Build -->
+  <project path="build/make" name="build" remote="hexa" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh"/>
+    <linkfile src="target" dest="build/target"/>
+    <linkfile src="tools" dest="build/tools"/>
+  </project>
+
+  <project path="build/soong" name="build_soong" remote="hexa" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- Device repos -->
+  <project path="device/qcom/sepolicy" name="device_qcom_sepolicy" remote="hexa" />
+  <project path="device/qcom/sepolicy-legacy-um" name="device_qcom_sepolicy-legacy-um" remote="hexa" />
+  <project path="device/qcom/sepolicy_vndr" name="device_qcom_sepolicy_vndr" remote="hexa" />
+  <project path="device/hexa/sepolicy" name="device_hexa_sepolicy" remote="hexa" />
+
+  <!-- External repos -->
+  <project path="external/e2fsprogs" name="external_e2fsprogs" remote="hexa" />
+  <project path="external/gptfdisk" name="external_gptfdisk" remote="hexa" />
+  <project path="external/mksh" name="external_mksh" remote="hexa" />
+  <project path="external/tinycompress" name="external_tinycompress" remote="hexa" />
+
+  <!-- Framework repos -->
+  <project path="frameworks/av" name="frameworks_av" remote="hexa" />
+  <project path="frameworks/base" name="frameworks_base" remote="hexa" />
+  <project path="frameworks/native" name="frameworks_native" remote="hexa" />
+
+  <!-- Hardware repos -->
+  <project path="hardware/libhardware" name="hardware_libhardware" remote="hexa" />
+  <project path="hardware/hexa/interfaces" name="hardware_hexa_interfaces" remote="hexa" />
+
+  <!-- Qcom hals -->
+  <project path="hardware/qcom-caf/wlan" name="hardware_qcom-caf_wlan" remote="hexa"/>
+
+  <!-- Qcom vendor -->
+  <project path="vendor/qcom/opensource/data-ipa-cfg-mgr" name="vendor_qcom_opensource_data-ipa-cfg-mgr" remote="hexa" />
+  <project path="vendor/qcom/opensource/dataservices" name="vendor_qcom_opensource_dataservices" remote="hexa" />
+  <project path="vendor/qcom/opensource/power" name="vendor_qcom_opensource_power" remote="hexa" />
+  <project path="vendor/qcom/opensource/vibrator" name="vendor_qcom_opensource_vibrator" remote="hexa" />
+
+  <!-- Vendor repos -->
+  <project path="vendor/hexa" name="vendor_hexa" remote="hexa" />
+
+  <!-- Packages repos -->
+  <project path="packages/apps/Calendar" name="packages_apps_Calendar" remote="hexa" />
+  <project path="packages/apps/Contacts" name="packages_apps_Contacts" remote="hexa" />
+  <project path="packages/apps/DeskClock" name="packages_apps_DeskClock" remote="hexa" />
+  <project path="packages/apps/Dialer" name="packages_apps_Dialer" remote="hexa" />
+  <project path="packages/apps/DocumentsUI" name="packages_apps_DocumentsUI" remote="hexa" />
+  <project path="packages/apps/Launcher3" name="packages_apps_Launcher3" remote="hexa" />
+  <project path="packages/apps/Messaging" name="packages_apps_Messaging" remote="hexa" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" remote="hexa" />
+  <project path="packages/apps/SettingsIntelligence" name="packages_apps_SettingsIntelligence" remote="hexa" />
+  <project path="packages/apps/ThemePicker" name="packages_apps_ThemePicker" remote="hexa" />
+  <project path="packages/inputmethods/LatinIME" name="packages_inputmethods_LatinIME" remote="hexa" />
+  <project path="packages/modules/adb" name="packages_modules_adb" remote="hexa" />
+
+  <!-- Prebuilt repos -->
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9" clone-depth="1" remote="hexa" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" name="prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9" clone-depth="1" remote="hexa" />
+
+  <!-- Proton Clang -->
+  <project path="prebuilts/clang/host/linux-x86/clang-proton" name="kdrag0n/proton-clang" clone-depth="1" revision="master" remote="github" />
+
+  <!-- System repos -->
+  <project path="system/core" name="system_core" remote="hexa" />
+  <project path="system/libhidl" name="system_libhidl" remote="hexa" />
+  <project path="system/libziparchive" name="system_libziparchive" remote="hexa" />
+  <project path="system/sepolicy" name="system_sepolicy" remote="hexa" />
+  <project path="system/update_engine" name="system_update_engine" remote="hexa" />
+</manifest>
